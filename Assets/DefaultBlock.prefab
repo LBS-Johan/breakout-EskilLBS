@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4987265209607125063}
   - component: {fileID: 4338583695198268172}
   m_Layer: 0
-  m_Name: Block
+  m_Name: DefaultBlock
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.003921569, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,19 +103,19 @@ MonoBehaviour:
   gradientDivider: 0
   healthColorGradient:
     serializedVersion: 2
-    key0: {r: 0.75892544, g: 0, b: 1, a: 1}
-    key1: {r: 1, g: 0, b: 0.6668625, a: 1}
-    key2: {r: 0, g: 1, b: 0.9008863, a: 0}
-    key3: {r: 0.035294116, g: 1, b: 0.13361384, a: 0}
-    key4: {r: 0.99137604, g: 1, b: 0, a: 0}
+    key0: {r: 1, g: 0.055532847, b: 0, a: 1}
+    key1: {r: 1, g: 0.89138025, b: 0.035294116, a: 1}
+    key2: {r: 0.0050344467, g: 1, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 14778
-    ctime2: 32125
-    ctime3: 48830
-    ctime4: 65535
+    ctime0: 21627
+    ctime1: 43253
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 5
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   dropPowerUp: 1
   powerUps:

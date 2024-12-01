@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] float maxHealth;
+    public float maxHealth;
     float health;
 
     [Space]

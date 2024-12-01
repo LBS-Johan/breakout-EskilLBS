@@ -10,6 +10,10 @@ public class BallPowerUp : MonoBehaviour
     [SerializeField] float downSpeed = -2f;
     Rigidbody2D rb;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void Update()
     {
         rb.velocity = new Vector2(0, downSpeed);
