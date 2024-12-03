@@ -23,7 +23,12 @@ public class BallPowerUp : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
-            Instantiate(ball);
+            Vector2 ballPos = new Vector2(transform.position.x, -2.77f);
+
+            GameObject go = Instantiate(ball, ballPos, Quaternion.identity);
+            go.GetComponent<Ball>().respawnPoint = ballPos;
+
+            Destroy(gameObject);
         }
     }
 }

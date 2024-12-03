@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
@@ -12,7 +13,7 @@ public class Ball : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField] float speed;
     [SerializeField] Vector2 startVector;
-    [SerializeField] Vector2 respawnPoint = new Vector2(0, -4f);
+    public Vector2 respawnPoint = new Vector2(0, -4f);
 
     [Space]
 
@@ -24,7 +25,7 @@ public class Ball : MonoBehaviour
     [Header("Other")]
     [SerializeField] bool respawn;
 
-    bool paused;
+    [HideInInspector] public bool paused;
     Vector2 oldVelocity;
 
     // Start is called before the first frame update
@@ -32,7 +33,12 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         transform.position = respawnPoint;
-        rb.velocity = startVector * speed;
+        if (!paused)
+        {
+            rb.velocity = startVector * speed;
+        }
+
+
     }
 
     // Update is called once per frame
@@ -43,27 +49,30 @@ public class Ball : MonoBehaviour
             rb.velocity = rb.velocity.normalized * speed;
         }
 
+        if (Input.GetButtonDown("Fire1") && LevelLoader.Instance.gameStarted && paused)
+        {
+            paused = false;
+            rb.velocity = startVector * speed;
+        }
+
         if (respawn)
         {
             if (transform.position.y < -6)
             {
+                PlayerHealth.Instance.TakeDamage(1);
+
                 transform.position = respawnPoint;
                 paused = true;
 
                 oldVelocity = rb.velocity;
                 rb.velocity = Vector2.zero;
-            }
-
-            if (Input.GetButtonDown("Fire1"))
-            {
-                paused = false;
-                rb.velocity = startVector * speed;
-            }
+            }         
         }
         
         if(!respawn && transform.position.y < -6)
         {
             Destroy(gameObject);
+            PlayerHealth.Instance.TakeDamage(PlayerHealth.Instance.maxHealth);
         }
     }
 

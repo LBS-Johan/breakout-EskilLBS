@@ -20,6 +20,10 @@ public class Block : MonoBehaviour
     [SerializeField] List<GameObject> powerUps;
     [SerializeField] int oneInXPowerUpChance;
 
+    [Space]
+
+    public int blockID;
+
     // Start is called before the first frame update
     void Start()
     {

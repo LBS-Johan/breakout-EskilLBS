@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 
 public class LevelCreator : MonoBehaviour
 {
@@ -14,6 +10,11 @@ public class LevelCreator : MonoBehaviour
     public static LevelCreator Instance;
 
     [SerializeField] Transform levelParent;
+
+    [Range(0.5f, 1f)]
+    public float scale;
+    [SerializeField] TextMeshProUGUI scaleText;
+    [SerializeField] GameObject previewBlock;
 
     [Space]
     [Header("UI Components")]
@@ -35,12 +36,32 @@ public class LevelCreator : MonoBehaviour
 
     private void Update()
     {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetButtonDown("Fire1") && !EventSystem.current.IsPointerOverGameObject())
         {
             PlaceBlock();
         }
-    }
 
+        if (mousePosition.x >= -4.3f || mousePosition.x <= 4.3f)
+        {
+            if (mousePosition.y >= 0.4f || mousePosition.y <= 5f)
+            {
+                previewBlock.SetActive(true);
+                mousePosition = new Vector2(Mathf.Round(mousePosition.x / scale) * scale, Mathf.Round(mousePosition.y * 2 / scale) / 2 * scale);
+                previewBlock.transform.position = mousePosition;
+                previewBlock.transform.localScale = new Vector2(scale * 0.9f, scale * 0.45f);
+            }
+            else
+            {
+                previewBlock.SetActive(false);
+            }
+        }
+        else
+        {
+            previewBlock.SetActive(false);
+        }
+    }
     void PlaceBlock()
     {
         Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -49,10 +70,11 @@ public class LevelCreator : MonoBehaviour
         {
             if(position.y >= 0.4f || position.y <= 5f)
             {
-                position = new Vector2(Mathf.Round(position.x), Mathf.Round(position.y * 2) / 2);
+                position = new Vector2(Mathf.Round(position.x / scale) * scale, Mathf.Round(position.y * 2 / scale) / 2 * scale);
 
                 GameObject _block = Instantiate(currentBlock, position, Quaternion.identity);
                 _block.transform.SetParent(levelParent);
+                _block.transform.localScale = new Vector2(scale * 0.9f, scale * 0.45f);
             }
         }
         
@@ -67,17 +89,10 @@ public class LevelCreator : MonoBehaviour
         currentBlockStatsText.text = "Health: " + newBlock.GetComponent<Block>().maxHealth; 
     }
 
-    public void SaveScene(string sceneName)
+    public void SetScale(float newScale)
     {
-        string[] path = EditorSceneManager.GetActiveScene().path.Split(char.Parse("/"));
-        path[path.Length - 1] = sceneName + path[path.Length - 1];
-        Scene newLevelScene = SceneManager.CreateScene(sceneName);
+        scale = newScale;
 
-        EditorSceneManager.MoveGameObjectToScene(levelParent.gameObject, newLevelScene);
-
-        //EditorSceneManager.SaveScene(newLevelScene, string.Join("/", path));
-
-
-        Debug.Log(string.Join("/", path));
+        scaleText.text = "Scale: " + Mathf.Round(scale * 100) + "%";
     }
 }
