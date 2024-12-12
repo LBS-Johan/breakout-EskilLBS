@@ -82,7 +82,7 @@ public class LevelLoader : MonoBehaviour
             Vector2 blockPos = new Vector2(blockDatas.list[i].xPos, blockDatas.list[i].yPos);
 
             GameObject go = Instantiate(blockObjects[blockDatas.list[i].ID], blockPos, Quaternion.identity);
-            go.transform.parent = blockParent;
+            go.transform.SetParent(blockParent);
             go.transform.localScale = new Vector2(blockDatas.list[i].scale, blockDatas.list[i].scale * 0.5f);
         }
 

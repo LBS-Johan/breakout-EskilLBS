@@ -273,10 +273,10 @@ RectTransform:
   - {fileID: 699513343}
   m_Father: {fileID: 482391061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497304179
 MonoBehaviour:
@@ -1167,10 +1167,10 @@ RectTransform:
   - {fileID: 986881371}
   m_Father: {fileID: 482391061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -75}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080626857
 MonoBehaviour:
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   levelSelectUI: {fileID: 482391060}
   gameStarted: 0
   countdownText: {fileID: 1273600164}
-  blockParent: {fileID: 0}
+  blockParent: {fileID: 115734701}
 --- !u!114 &2069851261
 MonoBehaviour:
   m_ObjectHideFlags: 0

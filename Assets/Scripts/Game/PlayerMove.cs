@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!paused && transform.position.x > -3.4f && transform.position.x < 3.13f)
+        if (!paused && transform.position.x > -3.4f && transform.position.x < 3.37f)
         {
             transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y);
         }
