@@ -64,6 +64,20 @@ public class LevelCreator : MonoBehaviour
     }
     void PlaceBlock()
     {
+        if(currentBlock == null)
+        {
+            // Delete block under mouse
+
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider.gameObject.GetComponent<Block>())
+            {
+                Destroy(hit.collider.gameObject);   
+            }
+
+            return;
+        }
+
         Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if(position.x >= -4.3f || position.x <= 4.3f)
@@ -82,6 +96,17 @@ public class LevelCreator : MonoBehaviour
 
     public void SetCurrentBlock(GameObject newBlock)
     {
+        if(newBlock.name == "EraserBlock")
+        {
+            currentBlock = null;
+
+            currentBlockIcon.color = new Color(0, 0, 0, 0);
+            currentBlockNameText.text = "Eraser";
+            currentBlockStatsText.text = "";
+
+            return;
+        }
+
         currentBlock = newBlock;
 
         currentBlockIcon.color = currentBlock.GetComponent<SpriteRenderer>().color;

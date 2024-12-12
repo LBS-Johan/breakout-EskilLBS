@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] bool premadeLevel;
+
     [SerializeField] List<string> levelNames;
 
     SerializableList<BlockData> blockDatas;
@@ -35,6 +38,8 @@ public class LevelLoader : MonoBehaviour
         {
             Destroy(this);
         }
+
+        
     }
 
     private void Start()
@@ -56,6 +61,11 @@ public class LevelLoader : MonoBehaviour
         
         GameObject.Find("Player").GetComponent<PlayerMove>().paused = true;
         Time.timeScale = 0;
+
+        if (premadeLevel)
+        {
+            StartCoroutine(nameof(StartGameCountdown));
+        }
     }
 
     public void LoadLevel(string levelName)
@@ -76,6 +86,11 @@ public class LevelLoader : MonoBehaviour
         levelSelectUI.SetActive(false);
 
         StartCoroutine(nameof(StartGameCountdown));
+    }
+
+    public void LoadPremadeLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
     }
 
     IEnumerator StartGameCountdown()

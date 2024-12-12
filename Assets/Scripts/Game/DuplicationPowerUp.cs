@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BallPowerUp : MonoBehaviour
+public class DuplicationPowerUp : MonoBehaviour
 {
-    [SerializeField] GameObject ball;
-
     [SerializeField] float downSpeed = -2f;
     Rigidbody2D rb;
 
@@ -21,13 +19,9 @@ public class BallPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
-            Vector2 ballPos = new Vector2(transform.position.x, -2.77f);
-
-            GameObject go = Instantiate(ball, ballPos, Quaternion.identity);
-            go.GetComponent<Ball>().respawnPoint = ballPos;
-            go.GetComponent<Ball>().startVector = -go.GetComponent<Ball>().startVector;
+            BallCounter.Instance.DuplicateBalls();
 
             Destroy(gameObject);
         }

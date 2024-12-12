@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
+    List<GameObject> blocks;
+
     [Header("Spawn Position Variables")]
     [Tooltip("The prefab of the block that will be spawned")]
     [SerializeField] GameObject block;

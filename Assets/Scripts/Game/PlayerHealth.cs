@@ -25,6 +25,14 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update()
+    {
+        if(BallCounter.Instance.currentBallCount == 0)
+        {
+            TakeDamage(maxHealth);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

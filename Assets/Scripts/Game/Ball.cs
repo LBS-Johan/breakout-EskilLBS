@@ -8,11 +8,10 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
 {
-    
     Rigidbody2D rb;
     [Header("Movement Variables")]
     [SerializeField] float speed;
-    [SerializeField] Vector2 startVector;
+    public Vector2 startVector;
     public Vector2 respawnPoint = new Vector2(0, -4f);
 
     [Space]
@@ -28,6 +27,13 @@ public class Ball : MonoBehaviour
     [HideInInspector] public bool paused;
     Vector2 oldVelocity;
 
+    private void Awake()
+    {
+        Debug.Log("Hej hej");
+        BallCounter.Instance.currentBallCount += 1;
+        BallCounter.Instance.currentBalls.Add(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +43,6 @@ public class Ball : MonoBehaviour
         {
             rb.velocity = startVector * speed;
         }
-
-
     }
 
     // Update is called once per frame
@@ -71,8 +75,8 @@ public class Ball : MonoBehaviour
         
         if(!respawn && transform.position.y < -6)
         {
+            BallCounter.Instance.currentBallCount -= 1;
             Destroy(gameObject);
-            PlayerHealth.Instance.TakeDamage(PlayerHealth.Instance.maxHealth);
         }
     }
 
