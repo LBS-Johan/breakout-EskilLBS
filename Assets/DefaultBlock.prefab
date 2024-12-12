@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ac9b26edaf736448bc754b0013a986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 1
   baseGradientOnMaxHealth: 1
   gradientDivider: 0
   healthColorGradient:
@@ -134,8 +134,7 @@ MonoBehaviour:
   dropPowerUp: 1
   powerUps:
   - {fileID: 7129700307928293117, guid: 5f821510b93ba0f418a33dd5a425fd6d, type: 3}
-  - {fileID: 7129700307928293117, guid: e9d75c3f81284fe418f64411565a7c13, type: 3}
-  oneInXPowerUpChance: 1
+  oneInXPowerUpChance: 10
   blockID: 0
 --- !u!61 &4338583695198268172
 BoxCollider2D:

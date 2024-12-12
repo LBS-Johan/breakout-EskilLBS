@@ -3385,6 +3385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671751054}
   - component: {fileID: 1671751053}
+  - component: {fileID: 1671751055}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -3429,6 +3430,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671751055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671751052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f6ea7b17a6c6149b9a998e6c6d6c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockParent: {fileID: 455982451}
 --- !u!1001 &1703346645
 PrefabInstance:
   m_ObjectHideFlags: 0

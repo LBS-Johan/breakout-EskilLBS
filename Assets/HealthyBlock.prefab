@@ -98,13 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ac9b26edaf736448bc754b0013a986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  maxHealth: 3
   baseGradientOnMaxHealth: 1
   gradientDivider: 0
   healthColorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.7326395, b: 0, a: 1}
-    key1: {r: 0.15271221, g: 1, b: 0.035294116, a: 1}
+    key1: {r: 1, g: 0.35350534, b: 0.035294116, a: 1}
     key2: {r: 0, g: 0.20240617, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
