@@ -84,6 +84,8 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GetComponent<AudioSource>().Play();
+
         if(collision.gameObject.tag == "Block")
         {
             collision.gameObject.GetComponent<Block>().TakeDamage(1);
