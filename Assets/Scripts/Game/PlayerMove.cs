@@ -25,9 +25,9 @@ public class PlayerMove : MonoBehaviour
             transform.position = new Vector2(-3.39f, transform.position.y);
         }
 
-        if (transform.position.x > 3.13f)
+        if (transform.position.x > 3.37f)
         {
-            transform.position = new Vector2(3.12f, transform.position.y);
+            transform.position = new Vector2(3.36f, transform.position.y);
         }
 
         if (paused && LevelLoader.Instance.gameStarted && Input.GetButtonDown("Fire1"))

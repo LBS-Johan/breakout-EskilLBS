@@ -51,13 +51,16 @@ public class LevelLoader : MonoBehaviour
 
         for (int i = 0; i < infoFiles.Length; i++)
         {
-            string fileName = infoFiles[i].Name;
-            fileName = fileName.Replace(".json", "");
+            if (!infoFiles[i].Name.Contains("Player.log") && !infoFiles[i].Name.Contains("Player-prev.log"))
+            {
+                string fileName = infoFiles[i].Name;
+                fileName = fileName.Replace(".json", "");
 
-            GameObject go = Instantiate(levelSelectObject, transform.position, Quaternion.identity);
-            go.transform.SetParent(levelSelectObjectParent);
-            go.GetComponentInChildren<TextMeshProUGUI>().text = fileName;
-            go.GetComponent<LevelSelectButton>().levelName = fileName;
+                GameObject go = Instantiate(levelSelectObject, levelSelectObjectParent, false);
+                go.transform.SetParent(levelSelectObjectParent);
+                go.GetComponentInChildren<TextMeshProUGUI>().text = fileName;
+                go.GetComponent<LevelSelectButton>().levelName = fileName;
+            }        
         }
 
         

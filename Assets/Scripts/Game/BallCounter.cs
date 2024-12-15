@@ -26,8 +26,6 @@ public class BallCounter : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentBallAmount);
-
         if (currentBallAmount <= 0)
         {
             
