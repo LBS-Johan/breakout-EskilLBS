@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallCounter : MonoBehaviour
 {
     [HideInInspector] public List<GameObject> currentBalls;
-    [HideInInspector] public int currentBallCount = 1;
+    [HideInInspector] public int currentBallAmount = 0;
     public static BallCounter Instance;
 
     [SerializeField] GameObject ballPrefab;
@@ -19,6 +21,18 @@ public class BallCounter : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+    }
+
+    private void Update()
+    {
+        Debug.Log(currentBallAmount);
+
+        if (currentBallAmount <= 0)
+        {
+            
+
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

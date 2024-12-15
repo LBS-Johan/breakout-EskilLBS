@@ -30,13 +30,15 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Hej hej");
-        BallCounter.Instance.currentBallCount += 1;
-        BallCounter.Instance.currentBalls.Add(gameObject);
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        BallCounter.Instance.currentBallAmount += 1;
+        BallCounter.Instance.currentBalls.Add(gameObject);
+
         rb = GetComponent<Rigidbody2D>();
         transform.position = respawnPoint;
         if (!paused)
@@ -75,7 +77,7 @@ public class Ball : MonoBehaviour
         
         if(!respawn && transform.position.y < -6)
         {
-            BallCounter.Instance.currentBallCount -= 1;
+            BallCounter.Instance.currentBallAmount -= 1;
             Destroy(gameObject);
         }
     }

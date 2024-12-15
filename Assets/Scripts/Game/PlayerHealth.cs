@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if(BallCounter.Instance.currentBallCount == 0)
+        if(BallCounter.Instance.currentBallAmount == 0)
         {
             TakeDamage(maxHealth);
         }
